@@ -1,0 +1,11 @@
+"scripts": {
+  "dev": "vite",
+  "dev:api": "php -S localhost:8000 -t backend",
+  "build": "vite build",
+  "preview": "vite preview",
+  "db:migrate:dev": "php backend/database/migrate.php dev",
+  "db:migrate:staging": "php backend/database/migrate.php staging",
+  "db:migrate:prod": "php backend/database/migrate.php production",
+  "deploy:staging": "vite build --mode staging && node scripts/deploy.mjs staging && npm run db:migrate:staging",
+  "deploy:prod": "vite build --mode production && node scripts/deploy.mjs production && npm run db:migrate:prod"
+}
